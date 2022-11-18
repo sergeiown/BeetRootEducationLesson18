@@ -53,7 +53,7 @@ nav {
         height: 1px;
         background-color: #000;
         position: absolute;
-        bottom: 0%;
+        bottom: -15%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -138,6 +138,7 @@ nav {
 
 // ⇓ ⇓ ⇓ ⇓ ⇓ main ⇓ ⇓ ⇓ ⇓ ⇓
 
+// ⇓ ⇓ ⇓ ⇓ ⇓ blog
 .banner {
   background-image: url("../img/bg-image.png");
   height: 600px;
@@ -157,6 +158,132 @@ nav {
   }
 }
 
+.blog {
+  max-width: 1170px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(auto-fit, 570px));
+  gap: 50px 0;
+
+  &__title {
+    grid-column: span 2;
+    h1 {
+      @extend %subtitle-main;
+    }
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 570px;
+    max-height: 470px;
+    background-size: cover;
+    overflow: hidden;
+
+    &-text {
+      width: 80%;
+
+      h2 {
+        @extend %text-subtitle;
+        margin-top: 30px;
+      }
+      h3 {
+        @extend %text-auxiliary;
+      }
+      p {
+        @extend %text-main;
+        margin-top: 50px;
+      }
+    }
+
+    img {
+      width: 95%;
+      height: 95%;
+    }
+  }
+}
+
+// tablet
+@media (max-width: 768px) {
+  .blog {
+    max-width: 768px;
+
+    &__card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 340px;
+      max-height: 280px;
+      background-size: cover;
+      overflow: hidden;
+
+      &-text {
+        width: 100%;
+
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+
+      img {
+        width: 95%;
+        height: 95%;
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 700px) {
+  .blog {
+    max-width: 700px;
+
+    &__title {
+      grid-column: span 1;
+    }
+
+    &__card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 300px;
+      max-height: 320px;
+      background-size: cover;
+      overflow: hidden;
+
+      &-text {
+        width: 100%;
+
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+
+      img {
+        width: 95%;
+        height: 95%;
+      }
+    }
+  }
+}
+
+// ⇓ ⇓ ⇓ ⇓ ⇓ latest
+
+// ⇓ ⇓ ⇓ ⇓ ⇓ popular
+
 // ⇓ ⇓ ⇓ ⇓ ⇓ footer ⇓ ⇓ ⇓ ⇓ ⇓
 footer {
   max-width: 1440px;
@@ -170,7 +297,8 @@ footer {
     margin-right: auto;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(auto-fit, 500px));
     gap: 30px;
     padding: 50px 0;
   }
@@ -180,7 +308,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 400px;
 
     h1 {
       @extend %title-main-footer;
@@ -236,8 +363,7 @@ footer {
 // tablet
 @media (max-width: 768px) {
   .footer__wrapper {
-    max-width: 768px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
 
     .footer__info {
       justify-self: center;
@@ -245,44 +371,24 @@ footer {
     }
 
     .socials {
-      width: 260px;
       justify-self: center;
     }
 
     .footer__copyright {
       grid-column: span 1;
       text-align: center;
-      width: 320px;
     }
   }
 }
 
 // mobile
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .footer__wrapper {
-    max-width: 320px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
     .footer__info {
-      justify-self: center;
-      text-align: center;
       h1 {
         font-size: 32px;
         line-height: 42px;
       }
-    }
-
-    .socials {
-      width: 240px;
-      justify-self: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .footer__copyright {
-      grid-column: span 1;
-      text-align: center;
-      width: 240px;
     }
   }
 }
