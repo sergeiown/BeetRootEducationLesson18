@@ -40,7 +40,7 @@ nav {
       position: relative;
 
       a {
-        color: #000;
+        @extend %menu-item;
         text-decoration: none;
         text-transform: uppercase;
         transition-duration: 0.4s;
@@ -70,7 +70,7 @@ nav {
 }
 
 // fluid
-@media (max-width: 923px) {
+@media (max-width: 946px) {
   nav ul li {
     margin: 0 22px;
   }
@@ -149,12 +149,7 @@ nav {
   background-position: bottom;
 
   &__banner-title h1 {
-    font-family: "Red Hat Display";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 64px;
-    letter-spacing: 0.05em;
+    @extend %title-banner;
     max-width: 770px;
     position: absolute;
     top: 15%;

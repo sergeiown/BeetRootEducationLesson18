@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Red+Hat+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Red+Hat+Display:wght@400;500;600;700&display=swap");
 
 @import "../scss/fontawesome.scss";
 
@@ -6,12 +6,113 @@
 
 $fa-font-path: "../webfonts";
 
-%title {
+%menu-item {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+%title-banner {
   font-family: "Red Hat Display", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
   line-height: 64px;
   letter-spacing: 0.05em;
+  color: #000000;
+}
+
+%title-main-footer {
+  font-family: "Red Hat Display", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 64px;
+  letter-spacing: 0.05em;
+  color: #000000;
+}
+
+%subtitle-main {
+  font-family: "Red Hat Display", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+%subtitle-main-bottom {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+%text-subtitle {
+  font-family: "Red Hat Display", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+%text-auxiliary {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #7b7b7b;
+}
+
+%text-main {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 166%;
+  letter-spacing: 0.05em;
+  color: #565656;
+}
+
+%button {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+%contacts {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+%copyright {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 166%;
+  letter-spacing: 0.1em;
   color: #000000;
 }
