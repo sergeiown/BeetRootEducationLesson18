@@ -65,7 +65,7 @@ nav {
   }
   .magnifier {
     @include fa-icon-solid($fa-var-magnifying-glass);
-    cursor: pointer;
+    color: #000;
   }
 }
 
