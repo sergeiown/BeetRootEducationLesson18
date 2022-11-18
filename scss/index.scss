@@ -1,6 +1,140 @@
 @import "../scss/_reset.scss";
 @import "../scss/_fonts.scss";
 
+$padding-desktop: 0px calc((100vw - 1170px) / 2) !default;
+$padding-tablet: 0px calc((100vw - 700px) / 2) !default;
+$padding-mobile: 0px calc((100vw - 300px) / 2) !default;
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+// ⇓ ⇓ ⇓ ⇓ ⇓ header ⇓ ⇓ ⇓ ⇓ ⇓
+
+nav {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  padding: $padding-desktop;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .menu-btn i {
+    line-height: 28px;
+    cursor: pointer;
+    display: none;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+
+    li {
+      margin: 0 42px;
+      position: relative;
+
+      a {
+        color: #000;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition-duration: 0.4s;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .magnifier {
+    @include fa-icon-solid($fa-var-magnifying-glass);
+    cursor: pointer;
+  }
+}
+
+// fluid
+@media (max-width: 923px) {
+  nav ul li {
+    margin: 0 22px;
+  }
+}
+
+// tablet
+@media (max-width: 768px) {
+  nav {
+    height: 60px;
+    padding: $padding-tablet;
+    position: relative;
+
+    .magnifier {
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      transform: translate(-50%, -50%);
+      line-height: 28px;
+    }
+
+    .menu-btn i {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      transform: translate(-50%, -50%);
+    }
+
+    ul {
+      position: fixed;
+      top: 80px;
+      left: -100%;
+      background: #fff;
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      display: block;
+      transition: all 0.2s ease;
+
+      li {
+        width: 100%;
+        margin: 42px 0;
+      }
+    }
+  }
+
+  #click:checked ~ .menu-btn i:before {
+    content: "\f161";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+}
+
+// mobile
+@media (max-width: 320px) {
+  nav {
+    padding: $padding-mobile;
+  }
+}
+
+// ⇓ ⇓ ⇓ ⇓ ⇓ footer ⇓ ⇓ ⇓ ⇓ ⇓
+footer {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  padding: $padding-desktop;
+  background: #fff;
+}
+
 .socials {
   display: inline-flex;
   flex-direction: row;
@@ -13,6 +147,8 @@
     height: 49px;
     background-color: transparent;
     border: 1px solid #565656;
+    cursor: pointer;
+    transition-duration: 0.4s;
 
     &:hover {
       background-color: #565656;
