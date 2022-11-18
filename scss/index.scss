@@ -1,10 +1,6 @@
 @import "../scss/_reset.scss";
 @import "../scss/_fonts.scss";
 
-$padding-desktop: 0px calc((100vw - 1170px) / 2) !default;
-$padding-tablet: 0px calc((100vw - 700px) / 2) !default;
-$padding-mobile: 0px calc((100vw - 300px) / 2) !default;
-
 body {
   max-width: 1440px;
   margin: 0 auto;
@@ -16,8 +12,10 @@ body {
 nav {
   display: flex;
   height: 100px;
-  width: 100%;
-  padding: $padding-desktop;
+  max-width: 1170px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
   background: #fff;
   align-items: center;
   justify-content: space-between;
@@ -47,8 +45,21 @@ nav {
         text-transform: uppercase;
         transition-duration: 0.4s;
       }
-      a:hover {
-        text-decoration: underline;
+
+      hr {
+        visibility: hidden;
+        width: 40px;
+        border: none;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      a:hover + hr {
+        visibility: visible;
       }
     }
   }
@@ -65,11 +76,10 @@ nav {
   }
 }
 
-// tablet
+// tablet and mobile
 @media (max-width: 768px) {
   nav {
     height: 60px;
-    padding: $padding-tablet;
     position: relative;
 
     .magnifier {
@@ -90,7 +100,7 @@ nav {
 
     ul {
       position: fixed;
-      top: 80px;
+      top: 60px;
       left: -100%;
       background: #fff;
       height: 100vh;
@@ -98,6 +108,7 @@ nav {
       text-align: center;
       display: block;
       transition: all 0.2s ease;
+      z-index: 1;
 
       li {
         width: 100%;
@@ -119,10 +130,29 @@ nav {
   }
 }
 
-// mobile
-@media (max-width: 320px) {
-  nav {
-    padding: $padding-mobile;
+// ⇓ ⇓ ⇓ ⇓ ⇓ main ⇓ ⇓ ⇓ ⇓ ⇓
+
+.banner {
+  background-image: url("../img/bg-image.png");
+  height: 600px;
+  margin: auto;
+  background-repeat: no-repeat;
+  max-width: 1440px;
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+
+  &__banner-title h1 {
+    font-family: "Red Hat Display";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: 0.05em;
+    max-width: 770px;
+    position: absolute;
+    top: 15%;
+    left: 9%;
   }
 }
 
@@ -130,8 +160,8 @@ nav {
 footer {
   display: flex;
   height: 100px;
-  width: 100%;
-  padding: $padding-desktop;
+  max-width: 1170px;
+  width: 95%;
   background: #fff;
 }
 
