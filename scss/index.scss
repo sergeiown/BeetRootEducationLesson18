@@ -560,6 +560,112 @@ nav {
   }
 }
 
+// ⇓ ⇓ ⇓ ⇓ ⇓ info
+.info {
+  max-width: 1170px;
+  width: 95%;
+  margin: 0 auto 90px auto;
+  display: grid;
+  align-items: baseline;
+  justify-items: center;
+  gap: 50px 5px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "button     button    "
+    "signature information";
+
+  #signature {
+    grid-area: signature;
+  }
+  #information {
+    grid-area: information;
+  }
+
+  &__button {
+    grid-area: button;
+    justify-self: center;
+
+    button {
+      @extend %button;
+      width: 180px;
+      height: 46px;
+      background: #565656;
+      border: 0;
+    }
+    button:hover {
+      color: #565656;
+      background: #56565679;
+      border: 2px solid #565656;
+    }
+    button:active {
+      color: #fff;
+      background: #565656;
+      border: 2px solid #565656;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    max-width: 470px;
+    max-height: fit-content;
+
+    h2 {
+      @extend %subtitle-main-bottom;
+      margin-bottom: 10px;
+    }
+
+    &-text {
+      p {
+        @extend %text-main;
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1000px) {
+  .info {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "button"
+      "signature"
+      " information";
+
+    &__card {
+      max-width: 700px;
+
+      &-text {
+        p {
+          margin-top: 30px;
+          text-align: end;
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 750px) {
+  .info {
+    &__card {
+      max-width: 300px;
+
+      &-text {
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+          text-align: start;
+        }
+      }
+    }
+  }
+}
+
 // ⇓ ⇓ ⇓ ⇓ ⇓ footer ⇓ ⇓ ⇓ ⇓ ⇓
 footer {
   max-width: 1440px;
