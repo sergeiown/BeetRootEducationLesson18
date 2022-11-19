@@ -138,11 +138,10 @@ nav {
 
 // ⇓ ⇓ ⇓ ⇓ ⇓ main ⇓ ⇓ ⇓ ⇓ ⇓
 
-// ⇓ ⇓ ⇓ ⇓ ⇓ blog
 .banner {
   background-image: url("../img/bg-image.png");
   height: 600px;
-  margin: auto;
+  margin: 0 auto 90px auto;
   background-repeat: no-repeat;
   max-width: 1440px;
   background-size: cover;
@@ -158,19 +157,21 @@ nav {
   }
 }
 
+// ⇓ ⇓ ⇓ ⇓ ⇓ blog
 .blog {
   max-width: 1170px;
   width: 95%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 90px auto;
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(auto-fit, 570px));
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
   gap: 50px 0;
 
   &__title {
     grid-column: span 2;
+    justify-self: start;
     h1 {
       @extend %subtitle-main;
     }
@@ -211,8 +212,6 @@ nav {
 // tablet
 @media (max-width: 768px) {
   .blog {
-    max-width: 768px;
-
     &__card {
       display: flex;
       align-items: center;
@@ -245,7 +244,7 @@ nav {
 // mobile
 @media (max-width: 700px) {
   .blog {
-    max-width: 700px;
+    grid-template-columns: 1fr;
 
     &__title {
       grid-column: span 1;
@@ -281,8 +280,285 @@ nav {
 }
 
 // ⇓ ⇓ ⇓ ⇓ ⇓ latest
+.latest {
+  max-width: 1170px;
+  width: 95%;
+  margin: 0 auto 90px auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 50px 5px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "latest-title  latest-title   latest-reference"
+    "lamp-latest   arrow-latest      roof-latest  "
+    "interface      technology         visual     ";
+
+  #lamp-latest {
+    grid-area: lamp-latest;
+  }
+  #arrow-latest {
+    grid-area: arrow-latest;
+  }
+  #roof-latest {
+    grid-area: roof-latest;
+  }
+  #interface {
+    grid-area: interface;
+  }
+  #technology {
+    grid-area: technology;
+  }
+  #visual {
+    grid-area: visual;
+  }
+
+  &__title {
+    grid-area: latest-title;
+    justify-self: start;
+    h1 {
+      @extend %subtitle-main;
+    }
+  }
+  &__title-reference {
+    grid-area: latest-reference;
+    justify-self: end;
+    a {
+      @extend %text-main;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    max-width: 370px;
+    max-height: fit-content;
+    background-size: cover;
+    overflow: hidden;
+
+    &-text {
+      h2 {
+        @extend %text-subtitle;
+        margin-top: 30px;
+      }
+
+      p {
+        @extend %text-main;
+        margin-top: 50px;
+      }
+      img {
+        width: 95%;
+        height: 95%;
+      }
+      &-date {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        h3 {
+          display: inline-flex;
+          justify-content: space-between;
+          @extend %text-auxiliary;
+        }
+      }
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1100px) {
+  .latest {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "latest-title  latest-reference"
+      "lamp-latest       interface   "
+      "technology       arrow-latest "
+      "roof-latest          visual   ";
+
+    &__card {
+      width: 340px;
+
+      &-text {
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 700px) {
+  .latest {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "latest-title"
+      "latest-reference"
+      "lamp-latest"
+      "interface"
+      "arrow-latest"
+      "technology"
+      "roof-latest"
+      "visual";
+
+    &__card {
+      max-width: 300px;
+
+      &-text {
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+    }
+    &__title-reference {
+      justify-self: baseline;
+    }
+  }
+}
 
 // ⇓ ⇓ ⇓ ⇓ ⇓ popular
+.popular {
+  max-width: 1170px;
+  width: 95%;
+  margin: 0 auto 90px auto;
+  display: grid;
+  align-items: baseline;
+  justify-items: center;
+  gap: 50px 5px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "popular-title  popular-reference"
+    "lamp-popular        wall-popular"
+    "interface-popular visual-popular";
+
+  #lamp-popular {
+    grid-area: lamp-popular;
+  }
+  #wall-popular {
+    grid-area: wall-popular;
+  }
+  #interface {
+    grid-area: interface-popular;
+  }
+  #visual {
+    grid-area: visual-popular;
+  }
+
+  &__title {
+    grid-area: popular-title;
+    justify-self: start;
+    h1 {
+      @extend %subtitle-main;
+    }
+  }
+  &__title-reference {
+    grid-area: popular-reference;
+    justify-self: end;
+    a {
+      @extend %text-main;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    max-width: 550px;
+    max-height: fit-content;
+    background-size: cover;
+    overflow: hidden;
+
+    &-text {
+      h2 {
+        @extend %text-subtitle;
+        margin-top: 30px;
+      }
+
+      p {
+        @extend %text-main;
+        margin-top: 50px;
+      }
+      img {
+        width: 95%;
+        height: 95%;
+      }
+      &-date {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        h3 {
+          display: inline-flex;
+          justify-content: space-between;
+          @extend %text-auxiliary;
+        }
+      }
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1160px) {
+  .popular {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "popular-title  popular-reference"
+      "lamp-popular        wall-popular"
+      "interface-popular visual-popular";
+
+    &__card {
+      max-width: 340px;
+
+      &-text {
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 750px) {
+  .popular {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "popular-title    "
+      "popular-reference"
+      "lamp-popular     "
+      "interface-popular"
+      "wall-popular     "
+      "visual-popular   ";
+
+    &__card {
+      max-width: 300px;
+
+      &-text {
+        h2 {
+          margin-top: 20px;
+        }
+
+        p {
+          margin-top: 30px;
+        }
+      }
+    }
+    &__title-reference {
+      justify-self: baseline;
+    }
+  }
+}
 
 // ⇓ ⇓ ⇓ ⇓ ⇓ footer ⇓ ⇓ ⇓ ⇓ ⇓
 footer {
